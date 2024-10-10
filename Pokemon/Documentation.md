@@ -140,3 +140,6 @@ Resistant None:
 AVG({FIXED [Name],[Name (Type Names.Csv2)]: IF [Damage]>25 AND [Damage]<100
 THEN 1 ELSE 0 END})
 ```
+
+![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/eff_1.png)
+![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/eff_2.png)
