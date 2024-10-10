@@ -31,8 +31,6 @@ For the pokedex description inclusion of each Pokémon, extracted with the scrip
 
 ## 3. pokemon_species.csv
 
-# Pokémon Database Documentation
-
 Mainly used for the chain evolution calculation of each Pokémon.
 
 ## Fields Description
@@ -111,6 +109,7 @@ The logic tables `pokemon_types` and `type_efficacy` have the natural join with 
 # Some calculated fields
 
 - Damage
+
 `IF COUNTD([Name1])=1 
     THEN 
         AVG([Damage Factor (Type Efficacy.Csv1)])
