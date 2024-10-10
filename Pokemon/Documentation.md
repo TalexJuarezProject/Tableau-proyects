@@ -82,7 +82,7 @@ Indicate type names, for join with the pokemon_types and type_efficacy tables.
 
 # Joins
 
-![Alt text](.Data/Schema_joins.extension)
+![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_ev_from_to.png)
 
 Pokemon.ID *--* pokedex_description.ID
 Pokemon.ID *--* pokedex_species.id
