@@ -110,9 +110,23 @@ The logic tables `pokemon_types` and `type_efficacy` have the natural join with 
 
 - Damage
 
-`IF COUNTD([Name1])=1 
+For the calculation of the damage received, considering the interaction between type inclusive when the pokemon who receives the damage has two types.
+
+```
+IF COUNTD([Name1])=1 
     THEN 
         AVG([Damage Factor (Type Efficacy.Csv1)])
     ELSE
         MIN([Damage Factor (Type Efficacy.Csv1)])*MAX([Damage Factor (Type Efficacy.Csv1)])/100
-END`
+END
+```
+
+
+- Immune to, Resistant to, Super resistant to, Weak to, Super Weak to.
+
+This calculated fiels are a simple clasification of the diferent attack effectiveness. E.g.:
+
+```
+IF [Damage]>25 AND [Damage]<100 THEN 1 ELSE 0 END
+```
+
