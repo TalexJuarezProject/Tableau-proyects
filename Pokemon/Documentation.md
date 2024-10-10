@@ -143,3 +143,9 @@ THEN 1 ELSE 0 END})
 
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/eff_1.png)
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/eff_2.png)
+
+These are two different visualizations but one is null when the other is not, so they can both be shown in the same place.
+This same technique is usen in the evolution chain.
+
+![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Super_position_1.png)
+![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Super_position_2.png)
