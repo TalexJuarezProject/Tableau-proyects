@@ -91,7 +91,7 @@ Fields Description
 - `pokedex_species.evolves_from_species_id` *--* `evo_to_second.evolves_from_species_id`
 - `pokemon_types.type_id` *--* `type_efficacy.target_type_id`
 
-#### Logic table "pokedex_species" formed for 3 tables
+#### Logic table "pokedex_species"
 For add Pokémon, Evolves to and Evolves from in the same row. This complete the evolution chain for chains of only one, two, or Pokémon in the middle of chains of three Pokemón.
 
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_ev_from_to.png)
