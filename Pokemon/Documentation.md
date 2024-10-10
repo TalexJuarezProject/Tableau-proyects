@@ -152,3 +152,6 @@ This same technique is usen in the evolution chain.
 
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Super_position_1.png)
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Super_position_2.png)
+
+
+All the images are in [Githib](https://github.com/TalexJuarezProject/Tableau-proyects/tree/main/Pokemon/sprites)
