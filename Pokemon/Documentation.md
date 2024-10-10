@@ -1,6 +1,6 @@
 # Documentation
 
-Pokedex project [Dashboard](https://public.tableau.com/app/profile/alejandro.juarez2254/viz/Pokedex_17272169043330/PokeballsSelector)
+Pokedex project [Dashboard](https://public.tableau.com/app/profile/alejandro.juarez2254/viz/Pokedex_17272169043330/PokeballsSelector).
 
 ## Data Sources
 
@@ -154,4 +154,4 @@ This same technique is usen in the evolution chain.
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Super_position_2.png)
 
 
-All the images are in [Githib](https://github.com/TalexJuarezProject/Tableau-proyects/tree/main/Pokemon/sprites)
+All the Pokémon images are in [Githib](https://github.com/TalexJuarezProject/Tableau-proyects/tree/main/Pokemon/sprites).
