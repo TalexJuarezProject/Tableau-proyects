@@ -84,10 +84,36 @@ Indicate type names, for join with the pokemon_types and type_efficacy tables.
 
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_joins.png)
 
-- Pokemon.ID *--* pokedex_description.ID
-- Pokemon.ID *--* pokedex_species.id
-- Pokemon.ID *--* pokedex_types.pokemon_id
-- pokedex_species.evolves_from_species_id *--* pokedex_species.id (for calculate "Evolves from")
-- pokedex_species.id *--* pokedex_species.evolves_from_species_id (for calculate "Evolves to")
+- `Pokemon.ID` *--* `pokedex_description.ID`
+- `Pokemon.ID` *--* `pokedex_species.id`
+- `Pokemon.ID` *--* `pokedex_types.pokemon_id`
+- `pokedex_species.evolves_from_species_id` *--* `evo_from_second.id`
+- `pokedex_species.evolves_from_species_id` *--* `evo_to_second.evolves_from_species_id`
+- `pokemon_types.type_id` *--* `type_efficacy.target_type_id`
+
+#### Logic table "pokedex_species" formed for 3 tables
+For add Pokémon, Evolves to and Evolves from in the same row. This complete the evolution chain for chains of only one, two, or Pokémon in the middle of chains of three Pokemón.
 
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_ev_from_to.png)
+
+- `pokedex_species.evolves_from_species_id` *--* `pokedex_species.id` (for calculate "Evolves from")
+- `pokedex_species.id` *--* `pokedex_species.evolves_from_species_id` (for calculate "Evolves to")
+
+
+#### Logic table "evo from second" and logic table "evo to second"
+For add the first and last evolution in chains of three Pokemón, inclusive for the firt and the last Pokémon in the chain.
+- `pokedex_species.evolves_from_species_id` *--* `pokedex_species.id` (for calculate "Evolves from")
+- `pokedex_species.id` *--* `pokedex_species.evolves_from_species_id` (for calculate "Evolves to")
+
+The logic tables `pokemon_types` and `type_efficacy` have the natural join with `types_names`.
+
+
+# Some calculated fields
+
+- Damage
+`IF COUNTD([Name1])=1 
+    THEN 
+        AVG([Damage Factor (Type Efficacy.Csv1)])
+    ELSE
+        MIN([Damage Factor (Type Efficacy.Csv1)])*MAX([Damage Factor (Type Efficacy.Csv1)])/100
+END`
