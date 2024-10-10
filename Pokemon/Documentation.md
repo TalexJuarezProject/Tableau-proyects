@@ -82,7 +82,7 @@ Indicate type names, for join with the pokemon_types and type_efficacy tables.
 
 # Joins
 
-![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_ev_from_to.png)
+![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_joins.png)
 
 Pokemon.ID *--* pokedex_description.ID
 Pokemon.ID *--* pokedex_species.id
@@ -91,4 +91,4 @@ Pokemon.ID *--* pokedex_types.pokemon_id
 pokedex_species.evolves_from_species_id *--* pokedex_species.id (for calculate "Evolves from")
 pokedex_species.id *--* pokedex_species.evolves_from_species_id (for calculate "Evolves to")
 
-![Alt text](.Data/Schema_ev_from_to.extension)
+![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_ev_from_to.png)
