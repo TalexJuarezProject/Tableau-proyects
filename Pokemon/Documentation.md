@@ -1,5 +1,7 @@
 # Documentation
 
+Pokedex project [Dashboard](https://public.tableau.com/app/profile/alejandro.juarez2254/viz/Pokedex_17272169043330/PokeballsSelector)
+
 ## Data Sources
 
 ### 1. Pokemon.csv
