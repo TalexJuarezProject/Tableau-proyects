@@ -1,10 +1,12 @@
-# Data Sources
+# Documentation
 
-## 1. Pokemon.csv
+## Data Sources
+
+### 1. Pokemon.csv
 
 Document with basic data's Pokémon: Name, Numeber, Generation, Types and Stats.
 
-### Fields Description
+Fields Description
 
 - `ID`: For joins and also is the number of the Pokémon, corresponding to their National Dex number.
 - `Name`: The name of the Pokémon (e.g., Pikachu, Bulbasaur).
@@ -20,20 +22,20 @@ Document with basic data's Pokémon: Name, Numeber, Generation, Types and Stats.
 - `Speed`: The base **Speed** stat, which determines the order of moves in battle.
 - `Generation`: The generation in which the Pokémon was introduced (e.g., Generation I, Generation V).
 
-## 2. pokedex_description.csv
+### 2. pokedex_description.csv
 
 For the pokedex description inclusion of each Pokémon, extracted with the script in the Extraction section.
 
-### Fields Description
+Fields Description
 
 - `ID`: The number of the Pokémon.
 - `Description`: The pokedex description of each Pokémon.
 
-## 3. pokemon_species.csv
+### 3. pokemon_species.csv
 
 Mainly used for the chain evolution calculation of each Pokémon.
 
-## Fields Description
+Fields Description
 
 - `id`: Unique identifier for the Pokémon, corresponding to their National Dex number.
 - `identifier`: The name of the Pokémon (e.g., Bulbasaur, not used in this version).
@@ -48,37 +50,37 @@ Mainly used for the chain evolution calculation of each Pokémon.
 - `is_mythical`: Boolean indicating if the species is classified as Mythical (not used in this version).
 - `order`: Numerical order of the Pokémon in the National Pokédex, including regional or alternate forms.
 
-## 4. pokemon_types.csv
+### 4. pokemon_types.csv
 
 For indicate each Pokémon's types in the same column, even for Pokémon with two types.
 
-### Fields Description
+Fields Description
 
 - `pokemon_id`: Unique identifier for the Pokémon, corresponding to their National Dex number.
 - `type_id`: Id for the Pokémon's types.
 - `slot`: Indicate if is the main or the second Pokémon's type (in case of has two).
 
-## 5. type_efficacy.csv
+### 5. type_efficacy.csv
 
 For calculate the damage between all Pokémon´s types.
 
-### Fields Description
+Fields Description
 
 - `damage_type_id`: Pokémon's type that inflicts damage.
 - `target_type_id`: Pokémon's type that recive damage.
 - `damage_factor`: Percentage of attack effectiveness.
 
-## 6. types_names.csv
+### 6. types_names.csv
 
 Indicate type names, for join with the pokemon_types and type_efficacy tables.
 
-### Fields Description
+Fields Description
 
 - `type_id`: Unique identifier for the type.
 - `local_languaje`: Languaje of the name, only in english for this project.
 - `name`: Name of the type.
 
-# Joins
+## Joins
 
 ![Alt text](https://github.com/TalexJuarezProject/Tableau-proyects/blob/main/Pokemon/Data/Schema_joins.png)
 
@@ -106,7 +108,7 @@ For add the first and last evolution in chains of three Pokemón, inclusive for 
 The logic tables `pokemon_types` and `type_efficacy` have the natural join with `types_names`.
 
 
-# Some calculated fields
+## Some calculated fields
 
 - Damage
 
@@ -120,7 +122,6 @@ IF COUNTD([Name1])=1
         MIN([Damage Factor (Type Efficacy.Csv1)])*MAX([Damage Factor (Type Efficacy.Csv1)])/100
 END
 ```
-
 
 - Immune to, Resistant to, Super resistant to, Weak to, Super Weak to.
 
