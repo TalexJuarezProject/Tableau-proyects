@@ -127,6 +127,16 @@ END
 This calculated fiels are a simple clasification of the diferent attack effectiveness. E.g.:
 
 ```
+Resistant to:
 IF [Damage]>25 AND [Damage]<100 THEN 1 ELSE 0 END
 ```
 
+- Filters Immune to, Resistant to, Super resistant to, Weak to, Super Weak to.
+
+Are used for the super position of some kind of effectiveness (when there are) and a None label (when there aren't). E.g.:
+
+```
+Resistant None:
+AVG({FIXED [Name],[Name (Type Names.Csv2)]: IF [Damage]>25 AND [Damage]<100
+THEN 1 ELSE 0 END})
+```
