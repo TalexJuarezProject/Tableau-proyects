@@ -6,29 +6,28 @@ Document with basic data's Pokémon: Name, Numeber, Generation, Types and Stats.
 
 ### Fields Description
 
-- ID: For joins and also is the number of the Pokémon
-- Name: The name of the Pokémon (e.g., Pikachu, Bulbasaur).
-- Form: Indicates if the Pokémon has more than one form (not used in this version).
-- Type1: The primary type of the Pokémon (e.g., Fire, Water, Grass).
-- Type2: - The secondary type of the Pokémon, if applicable (e.g., Flying, Ice). If the Pokémon has only one type, this field is empty.
-- Total: The sum of all base stats for the Pokémon (HP, Attack, Defense, Sp. Atk, Sp. Def, Speed).
-- HP: The base **Health Points** stat of the Pokémon.
-- Attack: The base **Attack** stat, which determines the power of physical moves.
-- Defense: The base **Defense** stat, which reduces damage from physical moves.
-- Sp. Atk: The base **Special Attack** stat, which determines the power of special moves.
-- Sp. Def: The base **Special Defense** stat, which reduces damage from special moves.
-- Speed: The base **Speed** stat, which determines the order of moves in battle.
-- Generation: The generation in which the Pokémon was introduced (e.g., Generation I, Generation V).
-
+- `ID`: For joins and also is the number of the Pokémon, corresponding to their National Dex number.
+- `Name`: The name of the Pokémon (e.g., Pikachu, Bulbasaur).
+- `Form`: Indicates if the Pokémon has more than one form (not used in this version).
+- `Type1`: The primary type of the Pokémon (e.g., Fire, Water, Grass).
+- `Type2`: - The secondary type of the Pokémon, if applicable (e.g., Flying, Ice). If the Pokémon has only one type, this field is empty.
+- `Total`: The sum of all base stats for the Pokémon (HP, Attack, Defense, Sp. Atk, Sp. Def, Speed).
+- `HP`: The base **Health Points** stat of the Pokémon.
+- `Attack`: The base **Attack** stat, which determines the power of physical moves.
+- `Defense`: The base **Defense** stat, which reduces damage from physical moves.
+- `Sp. Atk`: The base **Special Attack** stat, which determines the power of special moves.
+- `Sp. Def`: The base **Special Defense** stat, which reduces damage from special moves.
+- `Speed`: The base **Speed** stat, which determines the order of moves in battle.
+- `Generation`: The generation in which the Pokémon was introduced (e.g., Generation I, Generation V).
 
 ## 2. pokedex_description.csv
 
-For the pokedex description inclusion of each Pokémon.
+For the pokedex description inclusion of each Pokémon, extracted with the script in the Extraction section.
 
 ### Fields Description
 
-- ID: The number of the Pokémon.
-- Description: The pokedex description of each Pokémon.
+- `ID`: The number of the Pokémon.
+- `Description`: The pokedex description of each Pokémon.
 
 ## 3. pokemon_species.csv
 
@@ -38,41 +37,58 @@ Mainly used for the chain evolution calculation of each Pokémon.
 
 ## Fields Description
 
-- `id`:
-- A unique identifier for each Pokémon, typically corresponding to their National Dex number.
+- `id`: Unique identifier for the Pokémon, corresponding to their National Dex number.
+- `identifier`: The name of the Pokémon (e.g., Bulbasaur, not used in this version).
+- `generation_id`: The generation in which the Pokémon was introduced (e.g., 1 for Generation I).
+- `evolves_from_species_id`: ID of the Pokémon from which this species evolves, if applicable.
+- `evolution_chain_id`: Identifier for the evolution chain to which this species belongs.
+- `capture_rate`: Base rate determining how easy it is to capture this Pokémon.
+- `is_baby`: Boolean indicating if the species is a baby Pokémon (not used in this version).
+- `has_gender_differences`: Boolean indicating if there are visual differences between genders (not used in this version).
+- `mega_evolution`: Boolean indicating if the species has a Mega Evolution (not used in this version).
+- `is_legendary`: Boolean indicating if the species is considered Legendary (not used in this version).
+- `is_mythical`: Boolean indicating if the species is classified as Mythical (not used in this version).
+- `order`: Numerical order of the Pokémon in the National Pokédex, including regional or alternate forms.
 
-### 2. `name`:
-- The name of the Pokémon (e.g., Pikachu, Bulbasaur).
+## 4. pokemon_types.csv
 
-### 3. `form`:
-- Indicates if the Pokémon has an alternate form (e.g., Mega Evolution, regional variants). If empty, the Pokémon has only one form.
+For indicate each Pokémon's types in the same column, even for Pokémon with two types.
 
-### 4. `type1`:
-- The primary type of the Pokémon (e.g., Fire, Water).
+### Fields Description
 
-### 5. `type2`:
-- The secondary type of the Pokémon, if applicable. It may be empty for single-type Pokémon.
+- `pokemon_id`: Unique identifier for the Pokémon, corresponding to their National Dex number.
+- `type_id`: Id for the Pokémon's types.
+- `slot`: Indicate if is the main or the second Pokémon's type (in case of has two).
 
-### 6. `total`:
-- The total base stats for the Pokémon (sum of HP, Attack, Defense, Sp. Atk, Sp. Def, and Speed).
+## 5. type_efficacy.csv
 
-### 7. `hp`:
-- Base **Health Points** stat, representing the Pokémon's durability.
+For calculate the damage between all Pokémon´s types.
 
-### 8. `attack`:
-- Base **Attack** stat, affecting the power of physical moves.
+### Fields Description
 
-### 9. `defense`:
-- Base **Defense** stat, reducing damage from physical moves.
+- `damage_type_id`: Pokémon's type that inflicts damage.
+- `target_type_id`: Pokémon's type that recive damage.
+- `damage_factor`: Percentage of attack effectiveness.
 
-### 10. `sp_atk`:
-- Base **Special Attack** stat, affecting the power of special moves.
+## 6. types_names.csv
 
-### 11. `sp_def`:
-- Base **Special Defense** stat, reducing damage from special moves.
+Indicate type names, for join with the pokemon_types and type_efficacy tables.
 
-### 12. `speed`:
-- Base **Speed** stat, determining the order of turns in battle.
+### Fields Description
 
-### 13. `generation`:
-- Indicates the generation in which the Pokémon was introduced (e.g., Generation I, Generation VI).
+- `type_id`: Unique identifier for the type.
+- `local_languaje`: Languaje of the name, only in english for this project.
+- `name`: Name of the type.
+
+# Joins
+
+![Alt text](./Schema_joins.extension)
+
+Pokemon.ID *--* pokedex_description.ID
+Pokemon.ID *--* pokedex_species.id
+Pokemon.ID *--* pokedex_types.pokemon_id
+
+pokedex_species.evolves_from_species_id *--* pokedex_species.id (for calculate "Evolves from")
+pokedex_species.id *--* pokedex_species.evolves_from_species_id (for calculate "Evolves to")
+
+![Alt text](./Schema_ev_from_to.extension)
